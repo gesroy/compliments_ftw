@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
-  background: ${props => (props.color ? props.color : 'lightblue')};
+  background: ${props => (props.color ? props.color : 'whitesmoke')};
   display: flex;
   align-items: center;
   justify-content: center;
