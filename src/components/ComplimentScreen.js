@@ -4,7 +4,6 @@ import kompliment1 from '../images/kompliment1.jpg'
 import kompliment2 from '../images/kompliment2.jpg'
 
 const StyledComplimentScreen = styled.section`
-  background-color: peachpuff;
   text-align: center;
   display: flex;
   flex-direction: column;
