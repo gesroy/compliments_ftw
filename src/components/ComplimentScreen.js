@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import kompliment1 from '../images/kompliment1.jpg'
-import kompliment2 from '../images/kompliment2.jpg'
+import ComplimentCard from './ComplimentCard'
 
 const StyledComplimentScreen = styled.section`
   text-align: center;
@@ -10,22 +9,14 @@ const StyledComplimentScreen = styled.section`
   justify-content: center;
   align-items: center;
   background-color: papayawhip;
-`
-const StyledComplimentCard = styled.div`
-  width: 100vw;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
 `
 
 export default class ComplimentScreen extends Component {
   render() {
     return (
       <StyledComplimentScreen>
-        <StyledComplimentCard>
-          <img src={kompliment1} width="100%" />
-        </StyledComplimentCard>
-        <StyledComplimentCard>
-          <img src={kompliment2} width="100%" />
-        </StyledComplimentCard>
+        <ComplimentCard />
       </StyledComplimentScreen>
     )
   }
