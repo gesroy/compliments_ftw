@@ -1,9 +1,9 @@
-export function save(name, data) {
-  localStorage.setItem(name, JSON.stringify(data))
+export function save(text, data) {
+  localStorage.setItem(text, JSON.stringify(data))
 }
 
-export function load(name) {
-  const dataString = localStorage.getItem(name)
+export function load(text) {
+  const dataString = localStorage.getItem(text)
   try {
     return JSON.parse(dataString)
   } catch (error) {
