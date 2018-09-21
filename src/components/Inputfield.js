@@ -2,19 +2,17 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const StyledInput = styled.input`
+const StyledInput = styled.textarea`
   border: 1px solid #333;
-  height: 48px;
   border-radius: 3px;
   font-size: 1em;
   margin: 20px 20px 20px 0;
 `
 
-export default class Input extends Component {
+export default class Inputfield extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func,
     onChange: PropTypes.func,
-    placeholder: PropTypes.string,
   }
 
   state = {
@@ -45,10 +43,14 @@ export default class Input extends Component {
       <StyledInput
         onChange={this.updateInputValue}
         onKeyUp={this.checkForEnterButton}
-        placeholder={this.props.placeholder || 'Player name'}
-        autoFocus
         value={this.state.inputValue}
+        name="complimentInput"
+        autoFocus
+        placeholder="Wir freuen uns auf dein Kompliment"
         type="text"
+        rows="6"
+        minlength="10"
+        maxLength="300"
       />
     )
   }
