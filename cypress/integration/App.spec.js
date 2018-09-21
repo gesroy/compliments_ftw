@@ -5,26 +5,25 @@ describe('App', () => {
     cy.visit('http://localhost:3000')
     cy.clearLocalStorage()
   })
-})
-describe('Startscreen with compliments', () => {
-    cy.get('img')
-      .should('have.attr', 'placeholder', 'Player name')
-      .type('Jane{Enter}')
+
+  it('starts with compliments', () => {
+    cy.get('img').should('exist')
   })
-  it('has a player', () => {
-    cy.get('[data-test-id="StartScreen-player"]').should('contain', 'Jane')
+  describe('startscreen navigates to the compliment input-screen', () => {
+    it('navigates', () => {
+      cy.get('[data-test-id="Footer-Nav-To-Input"]').click()
+      cy.go('forward')
+      cy.location('pathname').should('include', 'input')
+    })
   })
-  it('has a play button', () => {
-    cy.get('button')
-      .contains('Play')
-      .should('exist')
-    it('navigates to the compliment input-screen', () => {
-      beforeEach(() => {
-      cy.get('img')
-        .contains('hammer')
+  describe('inputscreen', () => {
+    it('navigates back to startscreen', () => {
+      cy.visit('http://localhost:3000/input')
+      cy.get('button')
+        .contains('Abbrechen')
         .click()
       cy.go('forward')
-      cy.location('pathname').should('include', 'input')}
+      cy.location('pathname').should('include', '/')
     })
   })
 })

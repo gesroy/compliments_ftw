@@ -3,7 +3,6 @@ import React from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { withKnobs } from '@storybook/addon-knobs/react'
 
 import Footer from '../components/Footer'
 import Button from '../components/Button'
@@ -12,7 +11,6 @@ import ComplimentCard from '../components/ComplimentCard'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Inputfield from '../components/Inputfield'
 import InputScreen from '../components/InputScreen'
-import { Provider } from 'react-redux'
 
 storiesOf('Footer', module).add('with text', () => (
   <Router>
@@ -36,10 +34,8 @@ storiesOf('Button', module)
 
 storiesOf('Inputfield', module).add('show static', () => <Inputfield />)
 
-storiesOf('Screens/Inputscreen', module)
-  .addDecorator(getStory => <Provider store={store}>{getStory()}</Provider>)
-  .add('show static', () => (
-    <Router>
-      <InputScreen onSaveComplimentText={action('onSaveComplimentText')} />
-    </Router>
-  ))
+storiesOf('Screens/Inputscreen', module).add('show static', () => (
+  <Router>
+    <InputScreen onSaveComplimentText={action('onSaveComplimentText')} />
+  </Router>
+))

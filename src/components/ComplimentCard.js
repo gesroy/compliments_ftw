@@ -14,15 +14,15 @@ export default class ComplimentCard extends Component {
     return (
       <React.Fragment>
         <StyledComplimentCard>
-          <img src={kompliment1} width="100%" />
+          <img src={kompliment1} width="100%" alt="First compliment" />
           <a href="mailto:&subject=A%compliment%for%20you">
-            <img src={mail} width="40" height="40" />
+            <img src={mail} width="40" height="40" alt="Click here to share the compliment above"/>
           </a>
         </StyledComplimentCard>
         <StyledComplimentCard>
-          <img src={kompliment2} width="100%" />
+          <img src={kompliment2} width="100%" alt="First compliment" />
           <a href="mailto:&subject=A%compliment%for%20you">
-            <img src={mail} width="40" height="40" />
+            <img src={mail} width="40" height="40" alt="Click here to share the compliment above"/>
           </a>
         </StyledComplimentCard>
       </React.Fragment>
