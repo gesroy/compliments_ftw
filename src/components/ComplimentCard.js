@@ -1,31 +1,54 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import kompliment1 from '../images/kompliment1.jpg'
-import kompliment2 from '../images/kompliment2.jpg'
 import mail from '../images/mail.svg'
+import PropTypes from 'prop-types'
 
 const StyledComplimentCard = styled.div`
   width: 100vw;
   padding-bottom: 20px;
 `
 
+const StyledComplimentText = styled.div`
+  z-index: 100;
+  width: 80vw;
+  position: absolute;
+  color: white;
+  font-size: 2em;
+  font-style: bold;
+`
+
 export default class ComplimentCard extends Component {
+  static propTypes = {
+    compliment: PropTypes.string,
+    image: PropTypes.any,
+  }
+
   render() {
+    const ComplimentWrapper = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 75vh;
+    overflow: hidden;
+    background-image: url('${this.props.image}');
+    background-size: 100vw 75vh;
+    `
     return (
-      <React.Fragment>
-        <StyledComplimentCard>
-          <img src={kompliment1} width="100%" alt="First compliment" />
-          <a href="mailto:&subject=A%compliment%for%20you">
-            <img src={mail} width="40" height="40" alt="Click here to share the compliment above"/>
-          </a>
-        </StyledComplimentCard>
-        <StyledComplimentCard>
-          <img src={kompliment2} width="100%" alt="First compliment" />
-          <a href="mailto:&subject=A%compliment%for%20you">
-            <img src={mail} width="40" height="40" alt="Click here to share the compliment above"/>
-          </a>
-        </StyledComplimentCard>
-      </React.Fragment>
+      <StyledComplimentCard>
+        <ComplimentWrapper>
+          <StyledComplimentText>{this.props.compliment}</StyledComplimentText>
+        </ComplimentWrapper>
+        <a href="mailto:&subject=A%compliment%for%20you">
+          <img
+            src={mail}
+            width="40"
+            height="40"
+            alt="Click here to share the compliment above"
+          />
+        </a>
+      </StyledComplimentCard>
     )
   }
 }

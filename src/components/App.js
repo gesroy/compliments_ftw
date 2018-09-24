@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ComplimentScreen from './ComplimentScreen'
+import ComplimentScreenContainer from '../containers/ComplimentScreenContainer'
 import { Provider } from 'react-redux'
 import './App.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -21,7 +21,7 @@ class App extends Component {
       <Router>
         <Provider store={store}>
           <div className="App">
-            <Route exact path="/" component={ComplimentScreen} />
+            <Route exact path="/" component={ComplimentScreenContainer} />
             <Route path="/input" component={InputScreenContainer} />
             <Route component={Footer} />
           </div>
