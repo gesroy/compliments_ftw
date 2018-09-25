@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import hammer from '../images/hammer.svg'
+import support from '../images/support.svg'
+import ruler from '../images/ruler.svg'
 import { Link } from 'react-router-dom'
 
 const StyledFooter = styled.section`
@@ -11,6 +12,9 @@ const StyledFooter = styled.section`
   position: fixed;
   bottom: 0px;
   border-top: 2px solid white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `
 
 export default class Footer extends Component {
@@ -19,11 +23,20 @@ export default class Footer extends Component {
       <StyledFooter>
         <Link to="/input">
           <img
-            src={hammer}
+            src={support}
             width="40"
             height="40"
             data-test-id="Footer-Nav-To-Input"
-            alt="Click here to reach input"
+            alt="Click to reach input"
+          />
+        </Link>
+        <Link to="/review">
+          <img
+            src={ruler}
+            width="30"
+            height="30"
+            data-test-id="Footer-Nav-To-Review"
+            alt="Click to reach review"
           />
         </Link>
       </StyledFooter>

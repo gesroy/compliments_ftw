@@ -10,6 +10,7 @@ const initialState = {
     { text: 'You just made my day.' },
     { text: 'Du hast einen tollen Humor.' },
   ],
+  complimentsToReview: [],
 }
 
 export default function reducer(state = initialState, action = {}) {
@@ -20,10 +21,23 @@ export default function reducer(state = initialState, action = {}) {
       tempCompliment: action.payload.tempCompliment,
     }
 
+  case ACTIONS.SAVE_COMPLIMENT_TO_REVIEW:
+    return {
+      ...state,
+      complimentsToReview: [
+        ...state.complimentsToReview,
+        { text: state.tempCompliment },
+      ],
+      tempCompliment: null,
+    }
+
   case ACTIONS.SAVE_COMPLIMENT_TEXT:
     return {
       ...state,
-      compliments: [...state.compliments, { text: state.tempCompliment }],
+      compliments: [
+        ...state.compliments,
+        { text: state.complimentsToReview },
+      ],
       tempCompliment: null,
     }
 

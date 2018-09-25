@@ -11,8 +11,8 @@ const StyledInput = styled.textarea`
 
 export default class Inputfield extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func,
     onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
   }
 
   state = {

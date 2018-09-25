@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
-import { saveComplimentText } from '../actions'
+import { saveComplimentToReview } from '../actions'
 import InputScreen from '../components/InputScreen'
 
 const mapDispatchToProps = dispatch => ({
-  onSaveComplimentText: () => dispatch(saveComplimentText()),
+  onSaveComplimentToReview: () => dispatch(saveComplimentToReview()),
 })
 
 export default connect(
