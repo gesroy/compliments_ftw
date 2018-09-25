@@ -8,6 +8,7 @@ describe('App', () => {
 
   it('starts with compliments', () => {
     cy.get('img').should('exist')
+    cy.get('[data-test-id="ComplimentCard"]').should('exist')
   })
   describe('startscreen navigates to the compliment input-screen', () => {
     it('navigates', () => {

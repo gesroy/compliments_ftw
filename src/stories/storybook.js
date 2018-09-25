@@ -3,14 +3,19 @@ import React from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import { withKnobs, text, files } from '@storybook/addon-knobs/react'
 
 import Footer from '../components/Footer'
 import Button from '../components/Button'
-import ComplimentScreen from '../components/ComplimentScreen'
 import ComplimentCard from '../components/ComplimentCard'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Inputfield from '../components/Inputfield'
-import InputScreen from '../components/InputScreen'
+import kompliment13 from '../images/kompliment13-small.jpg'
+
+const image = {
+  src: kompliment13,
+  alt: 'compliment image',
+}
 
 storiesOf('Footer', module).add('with text', () => (
   <Router>
@@ -18,11 +23,15 @@ storiesOf('Footer', module).add('with text', () => (
   </Router>
 ))
 
-storiesOf('ComplimentCard', module).add('show static', () => <ComplimentCard />)
-
-storiesOf('Screens/ComplimentScreen', module).add('show static', () => (
-  <ComplimentScreen />
-))
+storiesOf('ComplimentCard', module)
+  .addDecorator(withKnobs)
+  .add('show static', () => (
+    <ComplimentCard
+      image={'/static/media/kompliment13-small.8a44b51b.jpg'}
+      compliment={text('text', 'Alles wird gut.')}
+    />
+  ))
+  .add('here is an image', () => <img src={image.src} alt={image.alt} />)
 
 storiesOf('Button', module)
   .add('show long', () => (
@@ -33,9 +42,3 @@ storiesOf('Button', module)
   .add('show short', () => <Button onClick={action('clicked')}>Short</Button>)
 
 storiesOf('Inputfield', module).add('show static', () => <Inputfield />)
-
-storiesOf('Screens/Inputscreen', module).add('show static', () => (
-  <Router>
-    <InputScreen onSaveComplimentText={action('onSaveComplimentText')} />
-  </Router>
-))
