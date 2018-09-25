@@ -30,7 +30,7 @@ export default class ComplimentCard extends Component {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 75vh;
+    height: 70vh;
     overflow: hidden;
     background-image: url('${this.props.image}');
     background-size: 100vw 75vh;

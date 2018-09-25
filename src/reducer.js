@@ -3,8 +3,12 @@ import ACTIONS from './actions'
 
 const initialState = {
   compliments: load('compliments') || [
-    { text: 'Das hast du toll gemacht. Danke.' },
+    { text: 'Das hast du toll gemacht.' },
     { text: 'Du bist wunderbar.' },
+    { text: 'Eine Liebe wie Deine kann die Welt verändern.' },
+    { text: 'Ich hoffe, meine Kinder werden ein bisschen so wie du.' },
+    { text: 'You just made my day.' },
+    { text: 'Du hast einen tollen Humor.' },
   ],
 }
 

@@ -21,7 +21,7 @@ export default class ComplimentScreen extends Component {
   }
 
   render() {
-    const { compliments, index } = this.props
+    const { compliments } = this.props
     return (
       <StyledComplimentScreen>
         {compliments.map((compliment, index) => (
