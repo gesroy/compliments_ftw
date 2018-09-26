@@ -10,7 +10,10 @@ const initialState = {
     { text: 'You just made my day.' },
     { text: 'Du hast einen tollen Humor.' },
   ],
-  complimentsToReview: [{ text: 'Prboier das sua.' }],
+  complimentsToReview: [
+    { text: 'Prboier das sua.' },
+    { text: 'Noch ein Test-text yum Testen.' },
+  ],
 }
 
 export default function reducer(state = initialState, action = {}) {
