@@ -17,7 +17,7 @@ const initialState = {
 }
 
 export default function reducer(state = initialState, action = {}) {
-  let index, inReviewText
+  let index
   switch (action.type) {
   case ACTIONS.SAVE_TEMP_COMPLIMENT_TEXT:
     return {

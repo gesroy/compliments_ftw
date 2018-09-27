@@ -16,7 +16,7 @@ const StyledComplimentScreen = styled.section`
 
 export default class ComplimentScreen extends Component {
   static propTypes = {
-    compliments: PropTypes.arrayOf(PropTypes.object).isRequired,
+    compliments: PropTypes.array,
     index: PropTypes.number,
   }
 
