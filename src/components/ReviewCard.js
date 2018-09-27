@@ -16,6 +16,7 @@ const StyledReviewCard = styled.div`
 
 export default class ReviewCard extends Component {
   static propTypes = {
+    inReviewText: PropTypes.string,
     compliment: PropTypes.string,
     onSaveComplimentText: PropTypes.func,
     index: PropTypes.number,
@@ -31,7 +32,7 @@ export default class ReviewCard extends Component {
           onClick={() =>
             this.props.onSaveComplimentText(
               this.props.index,
-              this.props.compliment
+              this.props.inReviewText
             )
           }
         >

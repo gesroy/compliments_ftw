@@ -17,12 +17,18 @@ const initialState = {
 }
 
 export default function reducer(state = initialState, action = {}) {
-  let index, compliment
+  let index, inReviewText
   switch (action.type) {
   case ACTIONS.SAVE_TEMP_COMPLIMENT_TEXT:
     return {
       ...state,
       tempCompliment: action.payload.tempCompliment,
+    }
+
+  case ACTIONS.SAVE_IN_REVIEW_TEXT:
+    return {
+      ...state,
+      inReviewText: action.payload.inReviewText,
     }
 
   case ACTIONS.SAVE_COMPLIMENT_TO_REVIEW:
@@ -37,14 +43,14 @@ export default function reducer(state = initialState, action = {}) {
 
   case ACTIONS.SAVE_COMPLIMENT_TEXT:
     index = action.payload.index
-    compliment = action.payload.compliment
     return {
       ...state,
-      compliments: [...state.compliments, { text: compliment }],
+      compliments: [...state.compliments, { text: state.inReviewText }],
       complimentsToReview: [
         ...state.complimentsToReview.slice(0, index),
         ...state.complimentsToReview.slice(index + 1),
       ],
+      inReviewText: null,
     }
 
   default:
