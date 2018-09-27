@@ -13,12 +13,12 @@ export default class InputScreen extends Component {
     return (
       <div>
         <h3>Schick uns dein Kompliment</h3>
-        <InputfieldContainer value="love is in the air" />
-        <Link to="/review" style={{ textDecoration: 'none' }}>
-          <Button onClick={this.props.onSaveComplimentToReview}>
-            Kompliment abschicken
-          </Button>
-        </Link>
+        <InputfieldContainer />
+
+        <Button onClick={this.props.onSaveComplimentToReview}>
+          Kompliment abschicken
+        </Button>
+
         <Link to="/" style={{ textDecoration: 'none' }}>
           <Button>Abbrechen</Button>
         </Link>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Button from './Button'
-import Inputfield from './Inputfield'
+import ReviewInputContainer from '../containers/ReviewInputContainer'
 
 const StyledReviewCard = styled.div`
   background-color: honeydew;
@@ -17,15 +17,26 @@ const StyledReviewCard = styled.div`
 export default class ReviewCard extends Component {
   static propTypes = {
     compliment: PropTypes.string,
+    onSaveComplimentText: PropTypes.func,
+    index: PropTypes.number,
   }
 
   state = { edit: false }
 
   renderInputfield = () => {
     return this.state.edit ? (
-      <StyledReviewCard>
-        <Inputfield value={this.props.compliment} />
-        <Button>Abschicken</Button>
+      <StyledReviewCard key={this.props.index}>
+        <ReviewInputContainer>{this.props.compliment}</ReviewInputContainer>
+        <Button
+          onClick={() =>
+            this.props.onSaveComplimentText(
+              this.props.index,
+              this.props.compliment
+            )
+          }
+        >
+          Abschicken
+        </Button>
       </StyledReviewCard>
     ) : (
       <StyledReviewCard>
