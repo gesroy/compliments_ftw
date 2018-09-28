@@ -11,8 +11,12 @@ const StyledInput = styled.textarea`
 
 export default class Inputfield extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func,
     onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
+    compliment: PropTypes.string,
+    index: PropTypes.number,
+    onSaveComplimentText: PropTypes.func,
+    children: PropTypes.any,
   }
 
   state = {
@@ -43,7 +47,7 @@ export default class Inputfield extends Component {
       <StyledInput
         onChange={this.updateInputValue}
         onKeyUp={this.checkForEnterButton}
-        value={this.state.inputValue}
+        value={this.state.inputValue || this.props.children}
         name="complimentInput"
         autoFocus
         placeholder="Wir freuen uns auf dein Kompliment"

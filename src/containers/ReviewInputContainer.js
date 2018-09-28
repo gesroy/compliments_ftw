@@ -1,15 +1,15 @@
 import { connect } from 'react-redux'
 import Inputfield from '../components/Inputfield'
-import { saveTempComplimentText, saveComplimentToReview } from '../actions'
+import { saveComplimentText, saveInReviewText } from '../actions'
 import { withRouter } from 'react-router-dom'
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: () => {
-    dispatch(saveComplimentToReview())
+  onSubmit: index => {
+    dispatch(saveComplimentText({ index }))
   },
-  onChange: tempCompliment =>
-    dispatch(saveTempComplimentText({ tempCompliment })),
+  onChange: inReviewText => dispatch(saveInReviewText({ inReviewText })),
 })
+
 const container = connect(
   null,
   mapDispatchToProps

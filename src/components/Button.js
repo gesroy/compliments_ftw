@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
-  background: 'whitesmoke';
+  background-color: beige;
   display: flex;
   align-items: center;
   justify-content: center;
