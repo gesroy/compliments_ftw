@@ -4,7 +4,7 @@ import { saveComplimentText, saveInReviewText } from '../actions'
 import { withRouter } from 'react-router-dom'
 
 const mapDispatchToProps = dispatch => ({
-  onSaveComplimentText: index => {
+  onSubmit: index => {
     dispatch(saveComplimentText({ index }))
   },
   onChange: inReviewText => dispatch(saveInReviewText({ inReviewText })),

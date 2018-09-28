@@ -11,6 +11,7 @@ import ComplimentCard from '../components/ComplimentCard'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Inputfield from '../components/Inputfield'
 import kompliment13 from '../images/kompliment13-small.jpg'
+import ReviewCard from '../components/ReviewCard'
 
 const image = {
   src: kompliment13,
@@ -41,4 +42,10 @@ storiesOf('Button', module)
   ))
   .add('show short', () => <Button onClick={action('clicked')}>Short</Button>)
 
-storiesOf('Inputfield', module).add('show static', () => <Inputfield />)
+storiesOf('Inputfield', module)
+  .add('for new compliment', () => <Inputfield />)
+  .add('for review', () => <Inputfield>Edit me, I am a compliment!</Inputfield>)
+
+storiesOf('ReviewCard', module).add('show', () => (
+  <ReviewCard compliment="Du bist das Licht meiner Augen." />
+))

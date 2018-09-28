@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { saveComplimentText } from '../actions'
 import ReviewScreen from '../components/ReviewScreen'
 
 const mapStateToProps = state => ({
@@ -7,11 +6,4 @@ const mapStateToProps = state => ({
   compliments: state.compliments,
 })
 
-const mapDispatchToProps = dispatch => ({
-  onSaveComplimentText: () => dispatch(saveComplimentText()),
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ReviewScreen)
+export default connect(mapStateToProps)(ReviewScreen)
