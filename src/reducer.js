@@ -2,24 +2,18 @@ import { load } from './services'
 import ACTIONS from './actions'
 
 const initialState = {
-  compliments: load('compliments') || [
-    { text: 'Du bist das Licht meiner Augen.' },
-    { text: 'Das hast du toll gemacht.' },
-    { text: 'Du bist wunderbar.' },
-    { text: 'Eine Liebe wie Deine kann die Welt verändern.' },
-    { text: 'Ich hoffe, meine Kinder werden ein bisschen so wie du.' },
-    { text: 'You just made my day.' },
-    { text: 'Du hast einen ansteckenden Humor.' },
-  ],
-  complimentsToReview: [
-    { text: 'Prboier das sua.' },
-    { text: 'Noch ein Test-text yum Testen.' },
-  ],
+  compliments: load('compliments') || [],
 }
 
 export default function reducer(state = initialState, action = {}) {
   let index
   switch (action.type) {
+  case ACTIONS.REPLACE_COMPLIMENTS:
+    return {
+      ...state,
+      compliments: action.payload.compliments,
+    }
+
   case ACTIONS.SAVE_TEMP_COMPLIMENT_TEXT:
     return {
       ...state,
