@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ComplimentScreenContainer from '../containers/ComplimentScreenContainer'
 import { Provider } from 'react-redux'
 import './App.css'
+import thunk from 'redux-thunk'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import InputScreenContainer from '../containers/InputScreenContainer'
 import Footer from './Footer'
@@ -13,7 +14,7 @@ import ReviewScreenContainer from '../containers/ReviewScreenContainer'
 const store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(saveToLocalStorage)
+  applyMiddleware(thunk, saveToLocalStorage)
 )
 
 class App extends Component {

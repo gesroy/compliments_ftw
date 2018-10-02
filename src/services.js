@@ -10,3 +10,11 @@ export function load(text) {
     return { error }
   }
 }
+
+export function loadCompliments() {
+  return fetch('http://localhost:3001/compliments')
+    .then(res => res.json())
+    .catch(() => {
+      return []
+    })
+}
