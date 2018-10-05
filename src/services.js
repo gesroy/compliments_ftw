@@ -18,3 +18,11 @@ export function loadCompliments() {
       return []
     })
 }
+
+export function loadComplimentsToReview() {
+  return fetch('http://localhost:3001/complimentstoreview')
+    .then(res => res.json())
+    .catch(() => {
+      return []
+    })
+}

@@ -2,7 +2,7 @@ import { load } from './services'
 import ACTIONS from './actions'
 
 const initialState = {
-  compliments: load('compliments') || [],
+  compliments: load('compliments', 'complimentsToReview') || [],
 }
 
 export default function reducer(state = initialState, action = {}) {
@@ -12,6 +12,12 @@ export default function reducer(state = initialState, action = {}) {
     return {
       ...state,
       compliments: action.payload.compliments,
+    }
+
+  case ACTIONS.REPLACE_COMPLIMENTS_TO_REVIEW:
+    return {
+      ...state,
+      complimentsToReview: action.payload.complimentsToReview,
     }
 
   case ACTIONS.SAVE_TEMP_COMPLIMENT_TEXT:

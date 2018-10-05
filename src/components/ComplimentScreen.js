@@ -19,10 +19,12 @@ export default class ComplimentScreen extends Component {
     compliments: PropTypes.array,
     index: PropTypes.number,
     loadComplimentsFromServer: PropTypes.func,
+    loadComplimentsToReviewFromServer: PropTypes.func,
   }
 
   componentDidMount() {
     this.props.loadComplimentsFromServer()
+    this.props.loadComplimentsToReviewFromServer()
   }
 
   render() {
