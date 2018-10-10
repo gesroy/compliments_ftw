@@ -1,9 +1,18 @@
 import { connect } from 'react-redux'
 import ReviewScreen from '../components/ReviewScreen'
+import { loadComplimentsToReviewFromServer } from '../actions'
 
 const mapStateToProps = state => ({
   complimentsToReview: state.complimentsToReview,
   compliments: state.compliments,
 })
 
-export default connect(mapStateToProps)(ReviewScreen)
+const mapDispatchToProps = dispatch => ({
+  loadComplimentsToReviewFromServer: () =>
+    dispatch(loadComplimentsToReviewFromServer()),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ReviewScreen)

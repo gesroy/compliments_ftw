@@ -6,9 +6,14 @@ import ReviewCardContainer from '../containers/ReviewCardContainer'
 
 export default class ReviewScreen extends Component {
   static propTypes = {
-    complimentsToReview: PropTypes.arrayOf(PropTypes.object).isRequired,
+    complimentsToReview: PropTypes.arrayOf(PropTypes.object),
     compliments: PropTypes.arrayOf(PropTypes.object),
     index: PropTypes.number,
+    loadComplimentsToReviewFromServer: PropTypes.func,
+  }
+
+  componentDidMount() {
+    this.props.loadComplimentsToReviewFromServer()
   }
 
   render() {
@@ -21,13 +26,14 @@ export default class ReviewScreen extends Component {
           mitmachst!
         </p>
         <section>
-          {complimentsToReview.map((compliment, index) => (
-            <ReviewCardContainer
-              key={index}
-              index={index}
-              compliment={compliment.text}
-            />
-          ))}
+          {complimentsToReview &&
+            complimentsToReview.map((compliment, index) => (
+              <ReviewCardContainer
+                key={index}
+                index={index}
+                compliment={compliment.text}
+              />
+            ))}
         </section>
         <Link to="/" style={{ textDecoration: 'none' }}>
           <Button>Abbrechen</Button>

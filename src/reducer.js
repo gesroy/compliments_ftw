@@ -2,7 +2,7 @@ import { load } from './services'
 import ACTIONS from './actions'
 
 const initialState = {
-  compliments: load('compliments', 'complimentsToReview') || [],
+  compliments: load('compliments') || [],
 }
 
 export default function reducer(state = initialState, action = {}) {
@@ -51,7 +51,6 @@ export default function reducer(state = initialState, action = {}) {
         ...state.complimentsToReview.slice(0, index),
         ...state.complimentsToReview.slice(index + 1),
       ],
-      inReviewText: null,
     }
 
   default:
