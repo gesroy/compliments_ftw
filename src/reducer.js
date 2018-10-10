@@ -14,6 +14,12 @@ export default function reducer(state = initialState, action = {}) {
       compliments: action.payload.compliments,
     }
 
+  case ACTIONS.REPLACE_COMPLIMENTS_TO_REVIEW:
+    return {
+      ...state,
+      complimentsToReview: action.payload.complimentsToReview,
+    }
+
   case ACTIONS.SAVE_TEMP_COMPLIMENT_TEXT:
     return {
       ...state,
@@ -45,7 +51,6 @@ export default function reducer(state = initialState, action = {}) {
         ...state.complimentsToReview.slice(0, index),
         ...state.complimentsToReview.slice(index + 1),
       ],
-      inReviewText: null,
     }
 
   default:

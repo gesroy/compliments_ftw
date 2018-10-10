@@ -16,13 +16,15 @@ const StyledComplimentScreen = styled.section`
 
 export default class ComplimentScreen extends Component {
   static propTypes = {
-    compliments: PropTypes.array,
+    compliments: PropTypes.array.isRequired,
     index: PropTypes.number,
     loadComplimentsFromServer: PropTypes.func,
+    loadComplimentsToReviewFromServer: PropTypes.func,
   }
 
   componentDidMount() {
     this.props.loadComplimentsFromServer()
+    this.props.loadComplimentsToReviewFromServer()
   }
 
   render() {
