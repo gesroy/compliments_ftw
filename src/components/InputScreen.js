@@ -6,7 +6,13 @@ import PropTypes from 'prop-types'
 
 export default class InputScreen extends Component {
   static propTypes = {
-    onSaveComplimentToReview: PropTypes.func.isRequired,
+    saveComplimentToReviewOnServer: PropTypes.func.isRequired,
+    tempCompliment: PropTypes.string,
+    loadComplimentsToReviewFromServer: PropTypes.func,
+  }
+
+  componentDidMount() {
+    this.props.loadComplimentsToReviewFromServer()
   }
 
   render() {
@@ -15,7 +21,11 @@ export default class InputScreen extends Component {
         <h3>Schick uns dein Kompliment</h3>
         <InputfieldContainer />
 
-        <Button onClick={this.props.onSaveComplimentToReview}>
+        <Button
+          onClick={() =>
+            this.props.saveComplimentToReviewOnServer(this.props.tempCompliment)
+          }
+        >
           Kompliment abschicken
         </Button>
 

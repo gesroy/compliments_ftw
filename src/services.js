@@ -19,11 +19,23 @@ export function loadCompliments() {
     })
 }
 
-export function createCompliment(inReviewText) {
+export function saveComplimentOnServer(inReviewText) {
   return fetch('http://localhost:3001/compliments', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify({ text: inReviewText }),
+  })
+    .then(res => res.json())
+    .catch(() => {
+      return []
+    })
+}
+
+export function saveComplimentToReviewOnServer(tempCompliment) {
+  return fetch('http://localhost:3001/complimentsToReview', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    body: JSON.stringify({ text: tempCompliment }),
   })
     .then(res => res.json())
     .catch(() => {

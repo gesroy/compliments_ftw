@@ -2,7 +2,8 @@ import { createAction } from 'redux-actions'
 import {
   loadCompliments,
   loadComplimentsToReview,
-  createCompliment,
+  saveComplimentOnServer,
+  saveComplimentToReviewOnServer,
 } from './services'
 
 const ACTIONS = {
@@ -39,8 +40,12 @@ export const loadComplimentsToReviewFromServer = () => dispatch => {
   })
 }
 
-export const myAction = text => () => {
-  createCompliment(text).then(result => console.log(result))
+export const postComplimentToServer = text => () => {
+  saveComplimentOnServer(text).then(result => console.log(result))
+}
+
+export const postComplimentToReviewToServer = text => () => {
+  saveComplimentToReviewOnServer(text).then(result => console.log(result))
 }
 
 export default ACTIONS
