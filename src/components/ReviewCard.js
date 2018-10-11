@@ -21,7 +21,12 @@ export default class ReviewCard extends Component {
     compliment: PropTypes.string,
     onSaveComplimentText: PropTypes.func,
     index: PropTypes.number,
-    createCompliment: PropTypes.func,
+    saveComplimentOnServer: PropTypes.func,
+    loadComplimentsToReviewFromServer: PropTypes.func,
+  }
+
+  componentDidUpdate() {
+    this.props.loadComplimentsToReviewFromServer()
   }
 
   state = { edit: false }
@@ -32,7 +37,9 @@ export default class ReviewCard extends Component {
         <ReviewInputContainer>{this.props.compliment}</ReviewInputContainer>
         {/* <Link to="/" style={{ textDecoration: 'none' }}> */}
         <Button
-          onClick={() => this.props.createCompliment(this.props.inReviewText)}
+          onClick={() =>
+            this.props.saveComplimentOnServer(this.props.inReviewText)
+          }
         >
           Abschicken
         </Button>
