@@ -10,6 +10,7 @@ import reducer from '../reducer'
 import { saveToLocalStorage } from '../middlewares'
 import { applyMiddleware, createStore } from 'redux'
 import ReviewScreenContainer from '../containers/ReviewScreenContainer'
+import UserScreenContainer from '../containers/UserScreenContainer'
 
 const store = createStore(
   reducer,
@@ -26,6 +27,7 @@ class App extends Component {
             <Route exact path="/" component={ComplimentScreenContainer} />
             <Route path="/input" component={InputScreenContainer} />
             <Route path="/review" component={ReviewScreenContainer} />
+            <Route path="/user" component={UserScreenContainer} />
             <Route component={Footer} />
           </div>
         </Provider>

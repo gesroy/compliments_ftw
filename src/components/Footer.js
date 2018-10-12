@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import support from '../images/support.svg'
 import ruler from '../images/ruler.svg'
+import certificate from '../images/certificate.svg'
 import { Link } from 'react-router-dom'
 
 const StyledFooter = styled.section`
@@ -33,6 +34,15 @@ export default class Footer extends Component {
         <Link to="/review">
           <img
             src={ruler}
+            width="30"
+            height="30"
+            data-test-id="Footer-Nav-To-Review"
+            alt="Click to reach review"
+          />
+        </Link>
+        <Link to="/user">
+          <img
+            src={certificate}
             width="30"
             height="30"
             data-test-id="Footer-Nav-To-Review"
