@@ -43,8 +43,8 @@ export default class Footer extends Component {
         <Link to="/user">
           <img
             src={certificate}
-            width="30"
-            height="30"
+            width="35"
+            height="35"
             data-test-id="Footer-Nav-To-Review"
             alt="Click to reach review"
           />
