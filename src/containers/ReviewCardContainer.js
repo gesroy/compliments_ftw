@@ -3,8 +3,10 @@ import {
   saveComplimentText,
   postComplimentToServer,
   loadComplimentsToReviewFromServer,
+  loadComplimentsFromServer,
 } from '../actions'
 import ReviewCard from '../components/ReviewCard'
+import { withRouter } from 'react-router-dom'
 
 const mapStateToProps = (state, ownProps) => ({
   index: ownProps.index,
@@ -19,9 +21,10 @@ const mapDispatchToProps = dispatch => ({
     dispatch(postComplimentToServer(inReviewText)),
   loadComplimentsToReviewFromServer: () =>
     dispatch(loadComplimentsToReviewFromServer()),
+  loadComplimentsFromServer: () => dispatch(loadComplimentsFromServer()),
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ReviewCard)
+)(withRouter(ReviewCard))

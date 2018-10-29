@@ -20,15 +20,17 @@ export default class InputScreen extends Component {
       <div>
         <h3>Schick uns dein Kompliment</h3>
         <InputfieldContainer />
-
-        <Button
-          onClick={() =>
-            this.props.saveComplimentToReviewOnServer(this.props.tempCompliment)
-          }
-        >
-          Kompliment abschicken
-        </Button>
-
+        <Link to="/review" style={{ textDecoration: 'none' }}>
+          <Button
+            onClick={() =>
+              this.props.saveComplimentToReviewOnServer(
+                this.props.tempCompliment
+              )
+            }
+          >
+            Kompliment abschicken
+          </Button>
+        </Link>
         <Link to="/" style={{ textDecoration: 'none' }}>
           <Button>Abbrechen</Button>
         </Link>
