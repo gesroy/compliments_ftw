@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: 0*/
 import { createAction } from 'redux-actions'
 import {
   loadCompliments,
@@ -40,12 +41,16 @@ export const loadComplimentsToReviewFromServer = () => dispatch => {
   })
 }
 
-export const postComplimentToServer = text => () => {
-  saveComplimentOnServer(text).then(result => console.log(result))
+export const postComplimentToServer = text => dispatch => {
+  saveComplimentOnServer(text).then(result => {
+    dispatch(loadComplimentsFromServer())
+  })
 }
 
-export const postComplimentToReviewToServer = text => () => {
-  saveComplimentToReviewOnServer(text).then(result => console.log(result))
+export const postComplimentToReviewToServer = text => dispatch => {
+  saveComplimentToReviewOnServer(text).then(result => {
+    dispatch(loadComplimentsToReviewFromServer())
+  })
 }
 
 export default ACTIONS

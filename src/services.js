@@ -26,6 +26,7 @@ export function saveComplimentOnServer(inReviewText) {
     body: JSON.stringify({ text: inReviewText }),
   })
     .then(res => res.json())
+
     .catch(() => {
       return []
     })
@@ -42,17 +43,6 @@ export function saveComplimentToReviewOnServer(tempCompliment) {
       return []
     })
 }
-
-// export function saveCompliments(compliments) {
-//   return fetch('http://localhost:3001/compliments', {
-//     method: 'POST',
-//     body: JSON.stringify(compliments),
-//   })
-//     .then(res => res.json())
-//     .catch(() => {
-//       return []
-//     })
-// }
 
 export function loadComplimentsToReview() {
   return fetch('http://localhost:3001/complimentstoreview')

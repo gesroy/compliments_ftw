@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Button from './Button'
 import ReviewInputContainer from '../containers/ReviewInputContainer'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+//import { Redirect } from 'react-router-dom'
 
 const StyledReviewCard = styled.div`
   background-color: honeydew;
@@ -23,10 +24,13 @@ export default class ReviewCard extends Component {
     index: PropTypes.number,
     saveComplimentOnServer: PropTypes.func,
     loadComplimentsToReviewFromServer: PropTypes.func,
+    loadComplimentsFromServer: PropTypes.func,
+    history: PropTypes.any,
   }
 
   componentDidUpdate() {
     this.props.loadComplimentsToReviewFromServer()
+    this.props.loadComplimentsFromServer()
   }
 
   state = { edit: false }
@@ -35,15 +39,15 @@ export default class ReviewCard extends Component {
     return this.state.edit ? (
       <StyledReviewCard key={this.props.index}>
         <ReviewInputContainer>{this.props.compliment}</ReviewInputContainer>
-        {/* <Link to="/" style={{ textDecoration: 'none' }}> */}
-        <Button
-          onClick={() =>
-            this.props.saveComplimentOnServer(this.props.inReviewText)
-          }
-        >
-          Abschicken
-        </Button>
-        {/* </Link> */}
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <Button
+            onClick={() =>
+              this.props.saveComplimentOnServer(this.props.inReviewText)
+            }
+          >
+            Abschicken
+          </Button>
+        </Link>
       </StyledReviewCard>
     ) : (
       <StyledReviewCard>
