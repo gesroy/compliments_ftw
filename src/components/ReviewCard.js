@@ -52,7 +52,12 @@ export default class ReviewCard extends Component {
     ) : (
       <StyledReviewCard>
         <p>{this.props.compliment}</p>
-        <Button onClick={() => this.setState({ edit: true })}>Editieren</Button>
+        <Button
+          data-test-id="Button-Edit-ReviewCard"
+          onClick={() => this.setState({ edit: true })}
+        >
+          Editieren
+        </Button>
       </StyledReviewCard>
     )
   }
