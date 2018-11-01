@@ -44,7 +44,7 @@ describe('App', () => {
       cy.location('pathname').should('include', '/')
     })
   })
-  describe('App with one new compliment', () => {
+  describe('with one new compliment', () => {
     it('enters a compliment', () => {
       cy.visit('http://localhost:3000/input')
       cy.get('textarea')
@@ -54,6 +54,9 @@ describe('App', () => {
           'Wir freuen uns auf dein Kompliment'
         )
         .type('Toll, dass wir uns kennen{Enter}')
+      cy.get('button')
+        .contains('Kompliment abschicken')
+        .click()
     })
     it('navigates to review', () => {
       cy.get('[data-test-id="Footer-Nav-To-Review"]').click()
@@ -62,12 +65,16 @@ describe('App', () => {
     })
     it('reviews a compliment', () => {
       cy.visit('http://localhost:3000/review')
+      cy.get('div').contains(
+        'Ich bin stolz auf Dich, dass Du das geschafft hast'
+      )
       cy.get('button')
         .contains('Editieren')
         .click()
-      cy.get('textarea')
-        .contains('Prboier das sua.')
-        .type('Habe ich ausprobiert.{Enter}')
+      cy.get('textarea').type('!!!')
+      cy.get('button')
+        .contains('Abschicken')
+        .click()
     })
   })
 })

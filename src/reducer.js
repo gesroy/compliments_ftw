@@ -51,6 +51,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state.complimentsToReview.slice(0, index),
         ...state.complimentsToReview.slice(index + 1),
       ],
+      inReviewText: null,
     }
 
   default:

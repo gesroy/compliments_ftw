@@ -20,7 +20,10 @@ export default class Button extends Component {
 
   render() {
     return (
-      <StyledButton onClick={this.props.onClick}>
+      <StyledButton
+        onClick={this.props.onClick}
+        data-test-id={this.props.children}
+      >
         {this.props.children}
       </StyledButton>
     )
